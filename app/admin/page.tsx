@@ -2,25 +2,21 @@ import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Package, ImageIcon, MessageSquare, Tag } from "lucide-react"
 import Link from "next/link"
+import { getProductsCount } from "@/app/actions/products"
+import { getCategoriesCount } from "@/app/actions/categories"
+import { getGalleryCount } from "@/app/actions/gallery"
+import { getInquiriesCount, getRecentInquiries } from "@/app/actions/inquiries"
 
 export default async function AdminDashboard() {
   const supabase = await getSupabaseServerClient()
 
-  // Get counts
-  const [{ count: productsCount }, { count: categoriesCount }, { count: galleryCount }, { count: inquiriesCount }] =
-    await Promise.all([
-      supabase.from("products").select("*", { count: "exact", head: true }),
-      supabase.from("categories").select("*", { count: "exact", head: true }),
-      supabase.from("gallery").select("*", { count: "exact", head: true }),
-      supabase.from("inquiries").select("*", { count: "exact", head: true }),
-    ])
-
-  // Get recent inquiries
-  const { data: recentInquiries } = await supabase
-    .from("inquiries")
-    .select("*")
-    .order("created_at", { ascending: false })
-    .limit(5)
+  const [productsCount, categoriesCount, galleryCount, inquiriesCount, recentInquiries] = await Promise.all([
+    getProductsCount(),
+    getCategoriesCount(),
+    getGalleryCount(),
+    getInquiriesCount(),
+    getRecentInquiries(5),
+  ])
 
   const stats = [
     {
@@ -82,7 +78,7 @@ export default async function AdminDashboard() {
         <CardContent>
           {recentInquiries && recentInquiries.length > 0 ? (
             <div className="space-y-4">
-              {recentInquiries.map((inquiry) => (
+              {recentInquiries.map((inquiry: any) => (
                 <div key={inquiry.id} className="flex items-start justify-between border-b pb-4 last:border-0">
                   <div className="space-y-1">
                     <p className="font-medium">{inquiry.name}</p>

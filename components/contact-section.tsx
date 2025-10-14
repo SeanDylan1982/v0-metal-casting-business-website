@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin } from "lucide-react"
-import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+import { createInquiry } from "@/app/actions/inquiries"
 import { useToast } from "@/hooks/use-toast"
 
 export function ContactSection() {
@@ -30,21 +30,19 @@ export function ContactSection() {
       message: formData.get("message") as string,
     }
 
-    const supabase = getSupabaseBrowserClient()
-    const { error } = await supabase.from("inquiries").insert([data])
-
-    if (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send inquiry. Please try again.",
-        variant: "destructive",
-      })
-    } else {
+    try {
+      await createInquiry(data)
       toast({
         title: "Success!",
         description: "Your inquiry has been sent. We'll get back to you soon.",
       })
       e.currentTarget.reset()
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send inquiry. Please try again.",
+        variant: "destructive",
+      })
     }
 
     setLoading(false)

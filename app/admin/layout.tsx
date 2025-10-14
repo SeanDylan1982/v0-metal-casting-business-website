@@ -8,10 +8,17 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode
 }) {
-  const supabase = await getSupabaseServerClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  let user = null
+
+  try {
+    const supabase = await getSupabaseServerClient()
+    const { data } = await supabase.auth.getUser()
+    user = data.user
+  } catch (error) {
+    console.error("[v0] Error getting user:", error)
+    // Redirect to setup page if env vars are missing
+    redirect("/setup")
+  }
 
   if (!user) {
     redirect("/login")
