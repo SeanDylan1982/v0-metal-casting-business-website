@@ -47,14 +47,15 @@ Since authentication is handled by Supabase, you need to create an admin user th
 
 The following environment variables are already configured in `.env.local`:
 
-**Supabase (Authentication):**
+<!-- **Supabase (Authentication):**
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
 **Neon (Database):**
 - `DATABASE_URL` (pooled connection)
 - `POSTGRES_URL` (pooled connection)
-- `POSTGRES_URL_NON_POOLING` (direct connection)
+- `POSTGRES_URL_NON_POOLING` (direct connection) -->
+
 
 For production deployment, add these same variables to your Vercel project settings.
 

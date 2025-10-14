@@ -73,7 +73,7 @@ Since authentication is handled by Supabase:
 Your environment is configured with:
 
 \`\`\`
-DATABASE_URL=postgresql://neondb_owner:npg_l7NxwWF0pUbn@ep-bold-firefly-adgs8h8p-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require
+DATABASE_URL=process.env.DATABASE_URL
 \`\`\`
 
 ## Architecture
