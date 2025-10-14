@@ -4,11 +4,11 @@ import { ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-800 to-amber-900">
+    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-800 to-amber-900">
       {/* Background image overlay */}
       <div
         className="absolute inset-0 opacity-20 bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/hero-background.jpg)" }}
+        style={{ backgroundImage: "url(/images/hero-background.jpg)"; height: '100vh'; }}
       />
 
       {/* Content */}
