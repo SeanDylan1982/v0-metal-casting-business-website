@@ -1,6 +1,6 @@
 import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { GalleryManager } from "@/components/admin/gallery-manager"
-import GoogleAnalytics from "../GoogleAnalytics"
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 export default async function GalleryPage() {
   const supabase = await getSupabaseServerClient()

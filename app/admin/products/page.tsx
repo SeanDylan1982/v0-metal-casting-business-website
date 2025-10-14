@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 import Link from "next/link"
 import { ProductsTable } from "@/components/admin/products-table"
-import GoogleAnalytics from "../GoogleAnalytics"
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 export default async function ProductsPage() {
   const supabase = await getSupabaseServerClient()

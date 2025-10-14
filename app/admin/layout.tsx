@@ -2,7 +2,7 @@ import type React from "react"
 import { redirect } from "next/navigation"
 import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { AdminNav } from "@/components/admin/admin-nav"
-import GoogleAnalytics from "../GoogleAnalytics";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export default async function AdminLayout({
   children,

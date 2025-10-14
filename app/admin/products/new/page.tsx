@@ -1,6 +1,6 @@
 import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { ProductForm } from "@/components/admin/product-form"
-import GoogleAnalytics from "../GoogleAnalytics"
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 export default async function NewProductPage() {
   const supabase = await getSupabaseServerClient()

@@ -1,7 +1,7 @@
 import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { ProductForm } from "@/components/admin/product-form"
 import { notFound } from "next/navigation"
-import GoogleAnalytics from "../GoogleAnalytics"
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 export default async function EditProductPage({
   params,

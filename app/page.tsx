@@ -9,7 +9,7 @@ import { LiveChat } from "@/components/live-chat"
 import { getFeaturedProducts } from "@/app/actions/products"
 import { getCategories } from "@/app/actions/categories"
 import { getVisibleGalleryItems } from "@/app/actions/gallery"
-import GoogleAnalytics from "../GoogleAnalytics.tsx";
+import GoogleAnalytics from "@/components/GoogleAnalytics.tsx";
 
 export default async function HomePage() {
   const [featuredProducts, categories, galleryItems] = await Promise.all([

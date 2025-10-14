@@ -1,6 +1,6 @@
 import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { InquiriesTable } from "@/components/admin/inquiries-table"
-import GoogleAnalytics from "../GoogleAnalytics"
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 export default async function InquiriesPage() {
   const supabase = await getSupabaseServerClient()
