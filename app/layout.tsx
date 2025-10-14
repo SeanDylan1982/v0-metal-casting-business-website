@@ -5,7 +5,7 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import GoogleAnalytics from "@/components/GoogleAnalytics.tsx";
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 const inter = Inter({
   subsets: ["latin"],
