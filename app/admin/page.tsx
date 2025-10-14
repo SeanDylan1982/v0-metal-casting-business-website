@@ -52,12 +52,13 @@ export default async function AdminDashboard() {
         <h1 className="text-3xl font-serif font-bold mb-2">Dashboard</h1>
         <p className="text-muted-foreground">Welcome to your admin dashboard. Manage your website content here.</p>
       </div>
+      
+      <GoogleAnalytics />
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat) => {
           const Icon = stat.icon
           return (
-            <GoogleAnalytics />
             <Link key={stat.title} href={stat.href}>
               <Card className="hover:shadow-md transition-shadow cursor-pointer">
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
