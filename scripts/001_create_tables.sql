@@ -53,32 +53,15 @@ CREATE TABLE IF NOT EXISTS inquiries (
   email TEXT NOT NULL,
   phone TEXT,
   company TEXT,
-  inquiry_type TEXT NOT NULL, -- 'retail' or 'wholesale'
+  inquiry_type TEXT NOT NULL,
   message TEXT NOT NULL,
-  status TEXT DEFAULT 'new', -- 'new', 'read', 'responded'
+  status TEXT DEFAULT 'new',
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Enable Row Level Security
-ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
-ALTER TABLE products ENABLE ROW LEVEL SECURITY;
-ALTER TABLE product_images ENABLE ROW LEVEL SECURITY;
-ALTER TABLE gallery ENABLE ROW LEVEL SECURITY;
-ALTER TABLE inquiries ENABLE ROW LEVEL SECURITY;
-
--- Public read access for categories, products, product_images, and gallery
-CREATE POLICY "Public can view categories" ON categories FOR SELECT USING (true);
-CREATE POLICY "Public can view products" ON products FOR SELECT USING (true);
-CREATE POLICY "Public can view product images" ON product_images FOR SELECT USING (true);
-CREATE POLICY "Public can view gallery" ON gallery FOR SELECT USING (is_visible = true);
-
--- Public can insert inquiries
-CREATE POLICY "Public can create inquiries" ON inquiries FOR INSERT WITH CHECK (true);
-
--- Admin policies (authenticated users can do everything)
-CREATE POLICY "Authenticated users can manage categories" ON categories FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Authenticated users can manage products" ON products FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Authenticated users can manage product images" ON product_images FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Authenticated users can manage gallery" ON gallery FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Authenticated users can view inquiries" ON inquiries FOR SELECT USING (auth.role() = 'authenticated');
-CREATE POLICY "Authenticated users can update inquiries" ON inquiries FOR UPDATE USING (auth.role() = 'authenticated');
+-- Create indexes for better query performance
+CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_id);
+CREATE INDEX IF NOT EXISTS idx_products_featured ON products(is_featured);
+CREATE INDEX IF NOT EXISTS idx_product_images_product ON product_images(product_id);
+CREATE INDEX IF NOT EXISTS idx_gallery_visible ON gallery(is_visible);
+CREATE INDEX IF NOT EXISTS idx_inquiries_status ON inquiries(status);

@@ -67,5 +67,6 @@ INSERT INTO gallery (title, image_url, description, display_order, is_visible) V
   ('Master Craftsman at Work', 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-13%20at%2020.04.18_5439fba0-WuUEdL7PjX4nemNboThuITbW4Sqk8O.jpg', 'Our skilled artisan with a finished potjie pot', 2, true),
   ('Religious Art Collection', 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-13%20at%2020.04.19_963264e2-xxpEJ5jPTEohvJpZSvg8xn0t9KEHs4.jpg', 'Ornate metal crosses with detailed designs', 3, true),
   ('Casting Process', 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-13%20at%2022.10.38_120648c9-AwtbAsaYT47nGjIsFQS8WCwMc72S2j.jpg', 'Sand mold preparation for metal casting', 4, true),
-  ('Showroom Display', 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-13%20at%2022.10.35_3debac83-h2E8VSL5o7nQKfPXycpFRHYeRjmgGL.jpg', 'Finished potjie pot in our showroom', 5, true)
+  ('Showroom Display', 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-13%20at%2022.10.35_3debac83-h2E8VSL5o7nQKfPXycpFRHYeRjmgGL.jpg', 'Finished potjie pot in our showroom', 5, true),
+  ('Decorative Cross with Angel', 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-13%20at%2022.14.42_1dc00023-s9dF7D3L25EINDb6QNd12pKTEISl3i.jpg', 'Beautifully painted cross with angel motif', 6, true)
 ON CONFLICT DO NOTHING;
