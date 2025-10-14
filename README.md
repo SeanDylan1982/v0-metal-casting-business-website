@@ -1,5 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/08c603c2-1e26-4dfd-af1f-f467013804e0/deploy-status)](https://app.netlify.com/projects/frafiks/deploys)
-https://frafiks.netlify.app/
+
+[Preview](https://frafiks.netlify.app/)
 
 # Frafiks Melting & Casting - Business Website
 
