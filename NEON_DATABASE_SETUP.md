@@ -86,7 +86,7 @@ DATABASE_URL=process.env.DATABASE_URL
 
 If you see "relation does not exist" errors:
 - Make sure you ran both SQL scripts in order
-- Check that you're connected to the correct database (`neondb`)
+- Check that you're connected to the correct database (`process.env.POSTGRES_DATABASE`)
 - Verify the scripts completed without errors
 
 If you can't log in:
