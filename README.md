@@ -84,8 +84,8 @@ In v0, you can run these scripts directly:
 
 1. Navigate to `/login`
 2. Use the default admin credentials:
-   - Email: `admin@frafiks.co.za`
-   - Password: `Admin123!`
+   - Email: ``
+   - Password: `!`
 3. You'll be redirected to the admin dashboard at `/admin`
 4. **Change your password immediately** in Supabase dashboard
 

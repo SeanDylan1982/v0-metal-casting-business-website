@@ -7,7 +7,7 @@ export function AboutSection() {
         <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground">About Frafiks Melting & Casting</h2>
           <p className="text-lg text-muted-foreground text-pretty">
-            Based in South Africa, we specialize in crafting solid metal products using custom molds and our
+            Based in Hammanskraal, South Africa, we specialize in crafting solid metal products using custom molds and our
             state-of-the-art smelting furnace. What started with traditional potjie pots has evolved into a diverse
             range of metal casting services for both retail customers and wholesale businesses.
           </p>

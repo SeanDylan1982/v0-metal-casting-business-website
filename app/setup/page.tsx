@@ -7,9 +7,8 @@ import Link from "next/link"
 
 export default function SetupPage() {
   const envVars = {
-    NEXT_PUBLIC_SUPABASE_URL: "https://oaphicfoiasurpczdlyz.supabase.co",
-    NEXT_PUBLIC_SUPABASE_ANON_KEY:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9hcGhpY2ZvaWFzdXJwY3pkbHl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAzODIwODAsImV4cCI6MjA3NTk1ODA4MH0.39-Iiz7UHeh6QVr4xH21XWMiO7fwcB7daeTpsQhfMbg",
+    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY:process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   }
 
   const hasEnvVars = process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -94,7 +93,7 @@ export default function SetupPage() {
                 <p className="text-sm mb-2">
                   Go to your{" "}
                   <a
-                    href="https://supabase.com/dashboard/project/oaphicfoiasurpczdlyz/sql/new"
+                    href=""
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary underline"
@@ -125,7 +124,7 @@ export default function SetupPage() {
                 <p className="text-sm mb-2">
                   Go to your{" "}
                   <a
-                    href="https://supabase.com/dashboard/project/oaphicfoiasurpczdlyz/auth/users"
+                    href=""
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary underline"
