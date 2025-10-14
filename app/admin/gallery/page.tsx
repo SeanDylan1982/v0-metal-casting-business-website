@@ -8,13 +8,13 @@ export default async function GalleryPage() {
   const { data: galleryItems } = await supabase.from("gallery").select("*").order("display_order", { ascending: true })
 
   return (
-    <GoogleAnalytics />
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-serif font-bold mb-2">Gallery</h1>
         <p className="text-muted-foreground">Manage your gallery images and videos</p>
       </div>
 
+      <GoogleAnalytics />
       <GalleryManager items={galleryItems || []} />
     </div>
   )

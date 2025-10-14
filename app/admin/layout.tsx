@@ -26,10 +26,10 @@ export default async function AdminLayout({
   }
 
   return (
-    <GoogleAnalytics />
     <div className="min-h-screen bg-muted/30">
       <AdminNav userEmail={user.email || ""} />
       <main className="container mx-auto px-4 py-8">{children}</main>
     </div>
+    <GoogleAnalytics />
   )
 }

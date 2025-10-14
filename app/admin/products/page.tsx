@@ -15,7 +15,6 @@ export default async function ProductsPage() {
     .order("created_at", { ascending: false })
 
   return (
-    <GoogleAnalytics />
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
@@ -30,6 +29,7 @@ export default async function ProductsPage() {
         </Button>
       </div>
 
+      <GoogleAnalytics />
       <ProductsTable products={(products as Product[]) || []} />
     </div>
   )
