@@ -6,6 +6,7 @@ import { getProductsCount } from "@/app/actions/products"
 import { getCategoriesCount } from "@/app/actions/categories"
 import { getGalleryCount } from "@/app/actions/gallery"
 import { getInquiriesCount, getRecentInquiries } from "@/app/actions/inquiries"
+import GoogleAnalytics from "../GoogleAnalytics.tsx";
 
 export default async function AdminDashboard() {
   const supabase = await getSupabaseServerClient()
@@ -46,6 +47,7 @@ export default async function AdminDashboard() {
   ]
 
   return (
+    <GoogleAnalytics />
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-serif font-bold mb-2">Dashboard</h1>

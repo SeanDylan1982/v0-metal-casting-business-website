@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 import Link from "next/link"
 import { ProductsTable } from "@/components/admin/products-table"
+import GoogleAnalytics from "../GoogleAnalytics"
 
 export default async function ProductsPage() {
   const supabase = await getSupabaseServerClient()
@@ -14,6 +15,7 @@ export default async function ProductsPage() {
     .order("created_at", { ascending: false })
 
   return (
+    <GoogleAnalytics />
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>

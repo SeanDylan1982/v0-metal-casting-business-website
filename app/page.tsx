@@ -9,6 +9,7 @@ import { LiveChat } from "@/components/live-chat"
 import { getFeaturedProducts } from "@/app/actions/products"
 import { getCategories } from "@/app/actions/categories"
 import { getVisibleGalleryItems } from "@/app/actions/gallery"
+import GoogleAnalytics from "../GoogleAnalytics.tsx";
 
 export default async function HomePage() {
   const [featuredProducts, categories, galleryItems] = await Promise.all([
@@ -19,6 +20,7 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen">
+      <GoogleAnalytics />
       <HeroSection />
       <AboutSection />
       <ProductsSection products={(featuredProducts as Product[]) || []} categories={(categories as Category[]) || []} />

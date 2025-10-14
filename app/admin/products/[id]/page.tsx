@@ -1,6 +1,7 @@
 import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { ProductForm } from "@/components/admin/product-form"
 import { notFound } from "next/navigation"
+import GoogleAnalytics from "../GoogleAnalytics"
 
 export default async function EditProductPage({
   params,
@@ -20,6 +21,7 @@ export default async function EditProductPage({
   }
 
   return (
+    <GoogleAnalytics />
     <div className="max-w-3xl space-y-6">
       <div>
         <h1 className="text-3xl font-serif font-bold mb-2">Edit Product</h1>
