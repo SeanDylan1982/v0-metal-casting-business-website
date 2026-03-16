@@ -8,11 +8,11 @@ const sql = neon(process.env.DATABASE_URL!)
 
 export async function loginAdmin(username: string, password: string) {
   try {
-    // Find admin user by username
+    // Find admin user by username or email
     const users = await sql`
       SELECT id, username, password_hash, email, is_active 
       FROM admin_users 
-      WHERE username = ${username} AND is_active = true
+      WHERE (username = ${username} OR email = ${username}) AND is_active = true
     `
     
     if (users.length === 0) {
