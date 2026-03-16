@@ -3,8 +3,8 @@
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { LogOut, LayoutDashboard, Package, ImageIcon, MessageSquare } from "lucide-react"
-import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+import { LogOut, LayoutDashboard, Package, ImageIcon, MessageSquare, Flame } from "lucide-react"
+import { logoutAdmin } from "@/app/actions/auth"
 
 interface AdminNavProps {
   userEmail: string
@@ -15,8 +15,7 @@ export function AdminNav({ userEmail }: AdminNavProps) {
   const router = useRouter()
 
   async function handleLogout() {
-    const supabase = getSupabaseBrowserClient()
-    await supabase.auth.signOut()
+    await logoutAdmin()
     router.push("/login")
     router.refresh()
   }
@@ -29,11 +28,12 @@ export function AdminNav({ userEmail }: AdminNavProps) {
   ]
 
   return (
-    <nav className="border-b bg-background">
+    <nav className="border-b bg-stone-900 border-stone-800">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
-            <Link href="/admin" className="font-serif font-bold text-xl">
+            <Link href="/admin" className="flex items-center gap-2 font-serif font-bold text-xl text-amber-50">
+              <Flame className="w-5 h-5 text-amber-500" />
               Frafiks Admin
             </Link>
             <div className="hidden md:flex items-center gap-4">
@@ -45,7 +45,7 @@ export function AdminNav({ userEmail }: AdminNavProps) {
                     key={item.href}
                     href={item.href}
                     className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-                      isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                      isActive ? "text-amber-500" : "text-stone-400 hover:text-amber-50"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -56,11 +56,11 @@ export function AdminNav({ userEmail }: AdminNavProps) {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground hidden sm:inline">{userEmail}</span>
-            <Button variant="outline" size="sm" asChild>
+            <span className="text-sm text-stone-400 hidden sm:inline">{userEmail}</span>
+            <Button variant="outline" size="sm" asChild className="border-stone-700 text-stone-300 hover:bg-stone-800">
               <Link href="/">View Site</Link>
             </Button>
-            <Button variant="ghost" size="sm" onClick={handleLogout}>
+            <Button variant="ghost" size="sm" onClick={handleLogout} className="text-stone-400 hover:text-amber-50 hover:bg-stone-800">
               <LogOut className="w-4 h-4 mr-2" />
               Logout
             </Button>
